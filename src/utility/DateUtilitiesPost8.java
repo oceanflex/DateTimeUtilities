@@ -63,13 +63,56 @@ public class DateUtilitiesPost8 {
         
         return now;
     }
-    
-    public static void main(String[] args) {
-        //try{
-        //System.out.println(DateUtilitiesPost8.getTimeInGMT(-19));
-        System.out.println(DateUtilitiesPost8.timeOfDay());
-//        }catch(DateTimeException dte){
-//            System.out.println("caught one");
-//        }
+    /**
+     * This version of the timeOfDay method will return the time of day of the input LocalDateTime
+     * @param ldt a LocalDateTime input to have it's time extracted.
+     * @return String in the format of hours:Minutes:Seconds.Milliseconds
+     */
+    public static String timeOfDay(LocalDateTime ldt){
+        String now = ldt.format(DateTimeFormatter.ISO_TIME);
+        
+        return now;
     }
+    /**has
+     * This method attempts to parse a LocalDateTime from an input string in a format DateTimeFormatter.ISO_DATE_TIME
+     * @param in String input of ISO_DATE_TIME
+     * @return returns LocalDateTime of the DATE_TIME extracted
+     * @throws IllegalArgumentException if the input isn't an ISO_DATE_TIME
+     */
+    public static LocalDateTime toLocalDateTime(String in)throws IllegalArgumentException{
+        LocalDateTime back= null;
+        //LocalDate temp = null
+        try{
+            back = LocalDateTime.parse(in, DateTimeFormatter.ISO_DATE_TIME);
+        }catch(Exception e){
+//            try{
+//                back = LocalDateTime.parse(in, DateTimeFormatter.ISO_TIME);
+//            }catch(Exception e2){
+//                try{
+//                    back = LocalDateTime.parse(in, DateTimeFormatter.ISO_DATE);
+//                }catch(Exception e3){
+                    //try{
+                    //    back = LocalDateTime.parse(in, DateTimeFormatter.ISO_INSTANT);
+                    //}catch(Exception e4){
+                        throw new IllegalArgumentException(e.getMessage());
+                    //}  
+                //}
+            //}
+        }
+        return back;
+    }
+    
+//    public static void main(String[] args) {
+//        //try{
+//        //System.out.println(DateUtilitiesPost8.getTimeInGMT(-19));
+//        System.out.println(DateUtilitiesPost8.timeOfDay());
+//        //System.out.println(DateUtilitiesPost8.toLocalDateTime());
+//        LocalDateTime ldt = LocalDateTime.now();
+//        DateTimeFormatter format = DateTimeFormatter.ISO_DATE;
+//        System.out.println(format.toFormat());
+//        System.out.println(DateUtilitiesPost8.toLocalDateTime(ldt.format(format)));
+////        }catch(DateTimeException dte){
+////            System.out.println("caught one");
+////        }
+//    }
 }
