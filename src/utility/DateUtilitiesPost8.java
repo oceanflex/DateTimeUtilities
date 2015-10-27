@@ -9,7 +9,9 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *This is a utility class for processing dates, and times in the new Java 8+ API
- * It contains methods for parsing dates out of string, formatting dates to strings, and doing math on dates
+ * It contains methods for parsing dates out of string, 
+ * formatting dates to strings, and doing math on dates
+ * This class is designed to not be instantiated
  * @author zsummers
  */
 public class DateUtilitiesPost8 {
@@ -30,10 +32,13 @@ public class DateUtilitiesPost8 {
         return zdt;
     }
     /**
-     * This version of the method will return a ZonedDateTime in the time zone at the number of hours input from GMT
+     * This version of the method will return a ZonedDateTime in the time zone 
+     * at the number of hours input from GMT
      * @param offset any number from -18 to +18 is acceptable
      * @return returns a ZonedDateTime of now, in the you chose
-     * @throws DateTimeException if the input int is more than 18 away from 0, DateTimeException will be thrown with message "(input) is too large an int for hours."
+     * @throws DateTimeException if the input int is more than 18 away from 0, 
+     * DateTimeException will be thrown with message 
+     * "(input) is too large an int for hours."
      */
     public static ZonedDateTime getTimeInGMT(int offset)throws DateTimeException{
         ZonedDateTime zdt = null;
@@ -70,7 +75,8 @@ public class DateUtilitiesPost8 {
         return now;
     }
     /**
-     * This version of the timeOfDay method will return the time of day of the input LocalDateTime
+     * This version of the timeOfDay method will return the time of day of the 
+     * input LocalDateTime
      * @param ldt a LocalDateTime input to have it's time extracted.
      * @return String in the format of hours:Minutes:Seconds.Milliseconds
      */
@@ -80,7 +86,8 @@ public class DateUtilitiesPost8 {
         return now;
     }
     /**has
-     * This method attempts to parse a LocalDateTime from an input string in a format DateTimeFormatter.ISO_DATE_TIME
+     * This method attempts to parse a LocalDateTime from an input string in 
+     * a format DateTimeFormatter.ISO_DATE_TIME
      * @param in String input of ISO_DATE_TIME
      * @return returns LocalDateTime of the DATE_TIME extracted
      * @throws IllegalArgumentException if the input isn't an ISO_DATE_TIME
