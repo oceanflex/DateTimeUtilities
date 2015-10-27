@@ -6,13 +6,19 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 /**
- *
+ *This is a utility class for processing dates, and times in the new Java 8+ API
+ * It contains methods for parsing dates out of string, formatting dates to strings, and doing math on dates
  * @author zsummers
  */
 public class DateUtilitiesPost8 {
+    /**
+     * this constructor exists to remove the default one
+     */
+    private DateUtilitiesPost8(){
+    }
+    
     /**
      * This default version of the method will return a ZonedDateTime of now, at GMT-0
      * @return ZonedDateTime instantiated to now, in Greenwich, London, England
