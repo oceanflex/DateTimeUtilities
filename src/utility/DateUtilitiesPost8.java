@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 public class DateUtilitiesPost8 {
     /**
      * This default version of the method will return a ZonedDateTime of now, at GMT-0
-     * @return 
+     * @return ZonedDateTime instantiated to now, in Greenwich, London, England
      */
     public static ZonedDateTime getTimeInGMT(){
         ZonedDateTime zdt;
@@ -21,7 +21,7 @@ public class DateUtilitiesPost8 {
         return zdt;
     }
     /**
-     * This method will return a ZonedDateTime in the time zone at the number of hours input from GMT
+     * This version of the method will return a ZonedDateTime in the time zone at the number of hours input from GMT
      * @param offset any number from -18 to +18 is acceptable
      * @return returns a ZonedDateTime of now, in the you chose
      * @throws DateTimeException if the input int is more than 18 away from 0, DateTimeException will be thrown with message "(input) is too large an int for hours."
