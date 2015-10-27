@@ -1,9 +1,12 @@
 package utility;
 
 import java.time.DateTimeException;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
@@ -48,10 +51,23 @@ public class DateUtilitiesPost8 {
         return zdt;
         
     }
+    /**
+     * This method will return the time of day as a String in hr:mn:sc.mil
+     * @return String holding time of day in hours:Minutes:Seconds.Milliseconds
+     */
+    public static String timeOfDay(){
+        String now;
+        
+        LocalDateTime day = LocalDateTime.now();
+        now = day.format(DateTimeFormatter.ISO_TIME);
+        
+        return now;
+    }
     
     public static void main(String[] args) {
         //try{
-        System.out.println(DateUtilitiesPost8.getTimeInGMT(-19));
+        //System.out.println(DateUtilitiesPost8.getTimeInGMT(-19));
+        System.out.println(DateUtilitiesPost8.timeOfDay());
 //        }catch(DateTimeException dte){
 //            System.out.println("caught one");
 //        }
