@@ -20,9 +20,12 @@ public class DateUtilitiesPost8 {
         
         return zdt;
     }
-    /*
-    
-    */
+    /**
+     * This method will return a ZonedDateTime in the time zone at the number of hours input from GMT
+     * @param offset any number from -18 to +18 is acceptable
+     * @return returns a ZonedDateTime of now, in the you chose
+     * @throws DateTimeException if the input int is more than 18 away from 0, DateTimeException will be thrown with message "(input) is too large an int for hours."
+     */
     public static ZonedDateTime getTimeInGMT(int offset)throws DateTimeException{
         ZonedDateTime zdt = null;
         try{
@@ -30,24 +33,25 @@ public class DateUtilitiesPost8 {
                 zdt= ZonedDateTime.now(ZoneOffset.ofHours(offset));
             }else if (offset > -64800 && offset < +64800){
                 zdt= ZonedDateTime.now(ZoneOffset.ofTotalSeconds(offset));
-                throw new DateTimeException(offset+" is to large an int for hours, assuming seconds");
+                throw new DateTimeException(offset+" is to large an int for hours.");
             }else{
-                throw new DateTimeException(offset +" is too large an int for seconds, using default of now.");
+                zdt = ZonedDateTime.now();
+                throw new DateTimeException(offset +" is too large an int for seconds.");
             }
         }catch(DateTimeException dte){
             throw new DateTimeException(dte.getMessage());
-        }finally{
-            if(zdt!=null){
-                return zdt;
-            }
-        }
+        }//finally{
+//            if(zdt!=null){
+//                return zdt;
+//            }
+//        }
         return zdt;
         
     }
     
     public static void main(String[] args) {
         //try{
-        System.out.println(DateUtilitiesPost8.getTimeInGMT(-64999));
+        System.out.println(DateUtilitiesPost8.getTimeInGMT(-19));
 //        }catch(DateTimeException dte){
 //            System.out.println("caught one");
 //        }
